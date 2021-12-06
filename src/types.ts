@@ -46,3 +46,14 @@ export interface IEntitySchemaConfig {
   entity: string;
   properties: TEntityProperties[];
 }
+
+export type TBasicTypes =
+  | EPropertyTypes.STRING
+  | EPropertyTypes.NUMBER
+  | EPropertyTypes.BOOLEAN
+  | EPropertyTypes.ANY;
+
+export interface IPropertiesTypeContructedInsulation {
+  root_properties: string[];
+  built_schemas: string[];
+}

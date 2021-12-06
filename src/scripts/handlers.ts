@@ -3,16 +3,14 @@ import {
   IEntityProperties,
   IEntityArrayProperty,
   TEntityProperties,
+  TBasicTypes,
+  IPropertiesTypeContructedInsulation,
+  IEntityCustomProperty,
 } from '../types';
-import { isNullableType } from './utils';
+import { isNullableType, toPascalCase } from './utils';
 
 export const constructBasicTypes = (
-  config: IEntityProperties<
-    | EPropertyTypes.STRING
-    | EPropertyTypes.NUMBER
-    | EPropertyTypes.BOOLEAN
-    | EPropertyTypes.ANY
-  >
+  config: IEntityProperties<TBasicTypes>
 ): string => {
   const { name, type, nullable } = config ?? {};
   return `${name}${isNullableType(nullable)}: ${type}`;
@@ -25,6 +23,78 @@ export const constructArrayTypes = (
   return `${name}${isNullableType(nullable)}: ${data_type}[]`;
 };
 
-// export const constructInterface = (properties: TEntityProperties[]): string => {
-//   return '';
-// };
+export const constructInterface = (
+  properties: TEntityProperties[]
+): IPropertiesTypeContructedInsulation => {
+  const insulated_interface = properties.reduce(
+    (acc, curr) => {
+      const { type } = curr ?? {};
+
+      switch (type) {
+        case EPropertyTypes.STRING:
+        case EPropertyTypes.NUMBER:
+        case EPropertyTypes.BOOLEAN:
+        case EPropertyTypes.ANY:
+          const contructed_basic_type = constructBasicTypes(
+            curr as IEntityProperties<TBasicTypes>
+          );
+          return {
+            ...acc,
+            root_properties: [...acc.root_properties, contructed_basic_type],
+          };
+        case EPropertyTypes.ARRAY:
+          const contructed_array_type = constructArrayTypes(
+            curr as IEntityArrayProperty<EPropertyTypes.ARRAY>
+          );
+          return {
+            ...acc,
+            root_properties: [...acc.root_properties, contructed_array_type],
+          };
+        case EPropertyTypes.OBJECT:
+          const {
+            root_properties: object_root_properties,
+            built_schemas: object_built_schemas,
+          } = constructObjectTypes(
+            curr as IEntityCustomProperty<EPropertyTypes.OBJECT>
+          );
+
+          return {
+            ...acc,
+            root_properties: [
+              ...acc.root_properties,
+              ...object_root_properties,
+            ],
+            built_schemas: [...acc.built_schemas, ...object_built_schemas],
+          };
+        default:
+          return acc;
+      }
+    },
+    {
+      root_properties: [],
+      built_schemas: [],
+    } as IPropertiesTypeContructedInsulation
+  );
+
+  return insulated_interface;
+};
+
+export const constructObjectTypes = (
+  config: IEntityCustomProperty<EPropertyTypes.OBJECT>
+): IPropertiesTypeContructedInsulation => {
+  const { name, nullable, additional_properties } = config ?? {};
+  const property_name = `I${toPascalCase(name)}`;
+
+  const { root_properties = [], built_schemas = [] } = constructInterface(
+    additional_properties
+  );
+
+  const built_schema = `interface ${property_name} {
+      ${root_properties.join('\n')}
+  }`;
+
+  return {
+    root_properties: [`${name}${isNullableType(nullable)}: ${property_name}`],
+    built_schemas: [built_schema, ...built_schemas],
+  };
+};
