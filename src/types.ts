@@ -1,26 +1,26 @@
-type TDataTypes =
+export type TDataTypes =
   | EPropertyTypes.STRING
   | EPropertyTypes.NUMBER
   | EPropertyTypes.BOOLEAN
   | EPropertyTypes.ANY;
 
-interface IEntityArrayProperty<TType = EPropertyTypes>
+export interface IEntityArrayProperty<TType = EPropertyTypes>
   extends IEntityProperties<TType> {
   data_type: TDataTypes;
 }
 
-interface IEntityCustomProperty<TType = EPropertyTypes>
+export interface IEntityCustomProperty<TType = EPropertyTypes>
   extends IEntityProperties<TType> {
   additional_properties: TEntityProperties[];
 }
 
-interface IEntityProperties<TType = EPropertyTypes> {
+export interface IEntityProperties<TType = EPropertyTypes> {
   name: string;
   type: TType;
   nullable: boolean;
 }
 
-type TEntityProperties =
+export type TEntityProperties =
   | IEntityProperties<
       Exclude<
         EPropertyTypes,
