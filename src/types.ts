@@ -44,6 +44,7 @@ export enum EPropertyTypes {
 
 export interface IEntitySchemaConfig {
   entity: string;
+  schema_version: string; // v4
   properties: TEntityProperties[];
 }
 

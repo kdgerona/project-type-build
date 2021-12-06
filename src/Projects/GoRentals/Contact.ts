@@ -2,6 +2,7 @@ import { IEntitySchemaConfig, EPropertyTypes } from '../../types';
 
 const Contact: IEntitySchemaConfig = {
   entity: 'contact',
+  schema_version: 'v4',
   properties: [
     {
       name: 'first_name',
