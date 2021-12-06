@@ -2,9 +2,11 @@
   "name": "project-level-schema-builder",
   "version": "1.0.0",
   "description": "Project Level Typings Schema Builder",
-  "main": "index.ts",
+  "main": "dist/build",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "rm -rf dist && tsc",
+    "format": "prettier src/**/*.ts --ignore-path ./.prettierignore --write",
+    "build:schema": "ts-node src/index.ts && npm run format && npm run build"
   },
   "repository": {
     "type": "git",
@@ -19,6 +21,8 @@
   "devDependencies": {
     "@types/bluebird": "^3.5.36",
     "@types/node": "^16.11.11",
+    "prettier": "^2.5.1",
+    "ts-node": "^10.4.0",
     "typescript": "^4.5.2"
   },
   "dependencies": {

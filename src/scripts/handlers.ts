@@ -130,7 +130,9 @@ export const constructCollectionTypes = (
     }`;
 
   return {
-    root_properties: [`${name}${isNullableType(nullable)}: ${interface_name}[]`],
+    root_properties: [
+      `${name}${isNullableType(nullable)}: ${interface_name}[]`,
+    ],
     built_schemas: [built_schema, ...built_schemas],
   };
 };

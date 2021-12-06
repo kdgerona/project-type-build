@@ -8,7 +8,7 @@ import builder from './scripts/builder';
 const main = async () => {
   try {
     const path = `${cwd()}/src/Projects/GoRentals`;
-    const write_path = `${cwd()}/build`;
+    const write_path = `${cwd()}/src/build`;
 
     if (existsSync(write_path)) {
       await rm(write_path, {
