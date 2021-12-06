@@ -66,6 +66,22 @@ export const constructInterface = (
             ],
             built_schemas: [...acc.built_schemas, ...object_built_schemas],
           };
+        case EPropertyTypes.COLLECTION:
+          const {
+            root_properties: collection_root_properties,
+            built_schemas: collection_built_schemas,
+          } = constructCollectionTypes(
+            curr as IEntityCustomProperty<EPropertyTypes.COLLECTION>
+          );
+
+          return {
+            ...acc,
+            root_properties: [
+              ...acc.root_properties,
+              ...collection_root_properties,
+            ],
+            built_schemas: [...acc.built_schemas, ...collection_built_schemas],
+          };
         default:
           return acc;
       }
@@ -90,11 +106,31 @@ export const constructObjectTypes = (
   );
 
   const built_schema = `interface ${property_name} {
-      ${root_properties.join('\n')}
+      ${root_properties.join(' ')}
   }`;
 
   return {
     root_properties: [`${name}${isNullableType(nullable)}: ${property_name}`],
+    built_schemas: [built_schema, ...built_schemas],
+  };
+};
+
+export const constructCollectionTypes = (
+  config: IEntityCustomProperty<EPropertyTypes.COLLECTION>
+): IPropertiesTypeContructedInsulation => {
+  const { name, nullable, additional_properties } = config ?? {};
+  const property_name = `I${toPascalCase(name)}`;
+
+  const { root_properties = [], built_schemas = [] } = constructInterface(
+    additional_properties
+  );
+
+  const built_schema = `interface ${property_name} {
+        ${root_properties.join(' ')}
+    }`;
+
+  return {
+    root_properties: [`${name}${isNullableType(nullable)}: ${property_name}[]`],
     built_schemas: [built_schema, ...built_schemas],
   };
 };

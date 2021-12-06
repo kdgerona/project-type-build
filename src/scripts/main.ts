@@ -3,6 +3,7 @@ import {
   constructBasicTypes,
   constructArrayTypes,
   constructObjectTypes,
+  constructCollectionTypes,
 } from './handlers';
 
 const builder = () => {
@@ -59,22 +60,60 @@ const builder = () => {
               nullable: false,
             },
             {
-                name: 'insurance_third',
-                type: EPropertyTypes.OBJECT,
-                nullable: true,
-                additional_properties: [
-                  {
-                    name: 'company_name',
-                    type: EPropertyTypes.STRING,
-                    nullable: false,
-                  },
-                  {
-                    name: 'insured_date',
-                    type: EPropertyTypes.NUMBER,
-                    nullable: false,
-                  },
-                ],
-              },
+              name: 'insurance_third',
+              type: EPropertyTypes.OBJECT,
+              nullable: true,
+              additional_properties: [
+                {
+                  name: 'company_name',
+                  type: EPropertyTypes.STRING,
+                  nullable: false,
+                },
+                {
+                  name: 'insured_date',
+                  type: EPropertyTypes.NUMBER,
+                  nullable: false,
+                },
+              ],
+            },
+          ],
+        },
+      ],
+    })
+  );
+
+  console.log(
+    'COLLECTION CONTRUCT',
+    constructCollectionTypes({
+      name: 'phone_number',
+      type: EPropertyTypes.COLLECTION,
+      nullable: true,
+      additional_properties: [
+        {
+          name: 'number',
+          type: EPropertyTypes.STRING,
+          nullable: false,
+        },
+        {
+          name: 'contact_name',
+          type: EPropertyTypes.STRING,
+          nullable: false,
+        },
+        {
+          name: 'insurance',
+          type: EPropertyTypes.OBJECT,
+          nullable: true,
+          additional_properties: [
+            {
+              name: 'company_name',
+              type: EPropertyTypes.STRING,
+              nullable: false,
+            },
+            {
+              name: 'insured_date',
+              type: EPropertyTypes.NUMBER,
+              nullable: false,
+            },
           ],
         },
       ],
