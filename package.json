@@ -1,0 +1,22 @@
+{
+  "name": "project-level-schema-builder",
+  "version": "1.0.0",
+  "description": "Project Level Typings Schema Builder",
+  "main": "index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://gitlab.dnamicro.net/Platform6/project-level-schema-builder.git"
+  },
+  "keywords": [
+    "schema",
+    "builder"
+  ],
+  "author": "Kevin Dave Gerona",
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^4.5.2"
+  }
+}
