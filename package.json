@@ -1,5 +1,5 @@
 {
-  "name": "project-level-schema-builder",
+  "name": "@types/gorentals",
   "version": "1.0.0",
   "description": "Project Level Typings Schema Builder",
   "main": "dist/build",
@@ -26,6 +26,12 @@
     "typescript": "^4.5.2"
   },
   "dependencies": {
-    "bluebird": "^3.7.2"
+    "@dnamicro/gorentals-schema-core": "git+http://gitlab.dnamicro.net/Platform6-Modules/companyschemas/gorentals/core.git#company-schemas/gorentals/core/v2",
+    "@nestjs/common": "^8.2.3",
+    "@nestjs/core": "^8.2.3",
+    "bluebird": "^3.7.2",
+    "graphql": "^16.0.1",
+    "reflect-metadata": "^0.1.13",
+    "rxjs": "^7.4.0"
   }
 }

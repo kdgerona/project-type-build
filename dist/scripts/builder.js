@@ -39,19 +39,23 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var promises_1 = require("fs/promises");
 var handlers_1 = require("./handlers");
 var utils_1 = require("./utils");
+var gorentals_schema_core_1 = require("@dnamicro/gorentals-schema-core");
 var builder = function (write_path, config) { return __awaiter(void 0, void 0, void 0, function () {
-    var _a, entity, properties, pascalized_entity_name, interface_name, _b, root_properties, built_schemas, template;
-    return __generator(this, function (_c) {
-        switch (_c.label) {
+    var _a, entity, _b, schema_version, properties, pascalized_entity_name, interface_name, _c, root_properties, built_schemas, a, test, template;
+    return __generator(this, function (_d) {
+        switch (_d.label) {
             case 0:
-                _a = config !== null && config !== void 0 ? config : {}, entity = _a.entity, properties = _a.properties;
+                _a = config !== null && config !== void 0 ? config : {}, entity = _a.entity, _b = _a.schema_version, schema_version = _b === void 0 ? 'v4' : _b, properties = _a.properties;
                 pascalized_entity_name = (0, utils_1.toPascalCase)(entity);
                 interface_name = "I".concat(pascalized_entity_name);
-                _b = (0, handlers_1.constructInterface)(properties), root_properties = _b.root_properties, built_schemas = _b.built_schemas;
+                _c = (0, handlers_1.constructInterface)(properties), root_properties = _c.root_properties, built_schemas = _c.built_schemas;
+                a = "".concat(pascalized_entity_name).concat(schema_version.toUpperCase());
+                test = gorentals_schema_core_1.GorentalsCore[a];
+                console.log('ANOTHER', test);
                 template = "\n    export interface ".concat(interface_name, " {\n      ").concat(root_properties.join('\n'), "\n    }\n\n    ").concat(built_schemas.join('\n'), "\n  ");
                 return [4 /*yield*/, (0, promises_1.writeFile)("".concat(write_path, "/").concat(pascalized_entity_name, ".ts"), template)];
             case 1:
-                _c.sent();
+                _d.sent();
                 return [2 /*return*/, pascalized_entity_name];
         }
     });

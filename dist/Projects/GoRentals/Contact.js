@@ -3,6 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var types_1 = require("../../types");
 var Contact = {
     entity: 'contact',
+    schema_version: 'v4',
     properties: [
         {
             name: 'first_name',
@@ -56,6 +57,23 @@ var Contact = {
                     name: 'insured_date',
                     type: types_1.EPropertyTypes.NUMBER,
                     nullable: false,
+                },
+                {
+                    name: 'insurance_two',
+                    type: types_1.EPropertyTypes.OBJECT,
+                    nullable: true,
+                    additional_properties: [
+                        {
+                            name: 'company_name_2',
+                            type: types_1.EPropertyTypes.STRING,
+                            nullable: false,
+                        },
+                        {
+                            name: 'insured_date_2',
+                            type: types_1.EPropertyTypes.NUMBER,
+                            nullable: false,
+                        },
+                    ],
                 },
             ],
         },
