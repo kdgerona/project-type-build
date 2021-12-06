@@ -65,11 +65,11 @@ var process_1 = require("process");
 var bluebird_1 = __importDefault(require("bluebird"));
 var builder_1 = __importDefault(require("./scripts/builder"));
 var main = function () { return __awaiter(void 0, void 0, void 0, function () {
-    var path_2, write_path_1, file_paths, e_1;
+    var path_2, write_path_1, file_paths, build_types_file_names, export_files_template, e_1;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
-                _a.trys.push([0, 6, , 7]);
+                _a.trys.push([0, 7, , 8]);
                 path_2 = "".concat((0, process_1.cwd)(), "/src/Projects/GoRentals");
                 write_path_1 = "".concat((0, process_1.cwd)(), "/src/build");
                 if (!(0, fs_1.existsSync)(write_path_1)) return [3 /*break*/, 2];
@@ -89,7 +89,7 @@ var main = function () { return __awaiter(void 0, void 0, void 0, function () {
                     return (0, path_1.join)(path_2, file_name);
                 });
                 return [4 /*yield*/, bluebird_1.default.map(file_paths, function (path) { return __awaiter(void 0, void 0, void 0, function () {
-                        var config;
+                        var config, file_name;
                         return __generator(this, function (_a) {
                             switch (_a.label) {
                                 case 0: return [4 /*yield*/, Promise.resolve().then(function () { return __importStar(require(path)); })];
@@ -97,19 +97,26 @@ var main = function () { return __awaiter(void 0, void 0, void 0, function () {
                                     config = (_a.sent()).default;
                                     return [4 /*yield*/, (0, builder_1.default)(write_path_1, config)];
                                 case 2:
-                                    _a.sent();
-                                    return [2 /*return*/];
+                                    file_name = _a.sent();
+                                    return [2 /*return*/, file_name];
                             }
                         });
                     }); })];
             case 5:
-                _a.sent();
-                return [3 /*break*/, 7];
+                build_types_file_names = _a.sent();
+                console.log('build_types_file_names', build_types_file_names);
+                export_files_template = build_types_file_names
+                    .map(function (file_name) { return "export * from './".concat(file_name, "'"); })
+                    .join('\n');
+                return [4 /*yield*/, (0, promises_1.writeFile)("".concat(write_path_1, "/index.ts"), export_files_template)];
             case 6:
+                _a.sent();
+                return [3 /*break*/, 8];
+            case 7:
                 e_1 = _a.sent();
                 console.error(e_1);
-                return [3 /*break*/, 7];
-            case 7: return [2 /*return*/];
+                return [3 /*break*/, 8];
+            case 8: return [2 /*return*/];
         }
     });
 }); };

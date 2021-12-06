@@ -40,18 +40,19 @@ var promises_1 = require("fs/promises");
 var handlers_1 = require("./handlers");
 var utils_1 = require("./utils");
 var builder = function (write_path, config) { return __awaiter(void 0, void 0, void 0, function () {
-    var _a, entity, properties, interface_name, _b, root_properties, built_schemas, template;
+    var _a, entity, properties, pascalized_entity_name, interface_name, _b, root_properties, built_schemas, template;
     return __generator(this, function (_c) {
         switch (_c.label) {
             case 0:
                 _a = config !== null && config !== void 0 ? config : {}, entity = _a.entity, properties = _a.properties;
-                interface_name = "I".concat((0, utils_1.toPascalCase)(entity));
+                pascalized_entity_name = (0, utils_1.toPascalCase)(entity);
+                interface_name = "I".concat(pascalized_entity_name);
                 _b = (0, handlers_1.constructInterface)(properties), root_properties = _b.root_properties, built_schemas = _b.built_schemas;
                 template = "\n    export interface ".concat(interface_name, " {\n      ").concat(root_properties.join('\n'), "\n    }\n\n    ").concat(built_schemas.join('\n'), "\n  ");
-                return [4 /*yield*/, (0, promises_1.writeFile)("".concat(write_path, "/").concat((0, utils_1.toPascalCase)(entity), ".ts"), template)];
+                return [4 /*yield*/, (0, promises_1.writeFile)("".concat(write_path, "/").concat(pascalized_entity_name, ".ts"), template)];
             case 1:
                 _c.sent();
-                return [2 /*return*/];
+                return [2 /*return*/, pascalized_entity_name];
         }
     });
 }); };

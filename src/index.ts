@@ -1,4 +1,4 @@
-import { readdir, mkdir, rm } from 'fs/promises';
+import { readdir, mkdir, rm, writeFile } from 'fs/promises';
 import { existsSync } from 'fs';
 import { join } from 'path';
 import { cwd } from 'process';
@@ -23,10 +23,20 @@ const main = async () => {
       join(path, file_name)
     );
 
-    await Bluebird.map(file_paths, async (path) => {
-      const { default: config } = await import(path);
-      await builder(write_path, config);
-    });
+    const build_types_file_names = await Bluebird.map(
+      file_paths,
+      async (path) => {
+        const { default: config } = await import(path);
+        const file_name = await builder(write_path, config);
+        return file_name;
+      }
+    );
+
+    const export_files_template = build_types_file_names
+      .map((file_name) => `export * from './${file_name}'`)
+      .join('\n');
+
+    await writeFile(`${write_path}/index.ts`, export_files_template);
   } catch (e) {
     console.error(e);
   }
