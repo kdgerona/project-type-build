@@ -68,24 +68,11 @@ const Contact: IEntitySchemaConfig = {
           nullable: false,
         },
         {
-          id: 'insurance',
-          name: 'insurance',
+          id: 'insurance-partner',
+          name: 'insurance_partner',
           type: EPropertyTypes.OBJECT,
           nullable: true,
-          additional_properties: [
-            {
-              id: 'company_name',
-              name: 'company_name',
-              type: EPropertyTypes.STRING,
-              nullable: false,
-            },
-            {
-              id: 'insured_date',
-              name: 'insured_date',
-              type: EPropertyTypes.NUMBER,
-              nullable: false,
-            },
-          ],
+          link: 'insurance'
         },
       ],
     },
