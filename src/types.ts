@@ -27,12 +27,20 @@ export type TEntityProperties =
   | IEntityProperties<
       Exclude<
         EPropertyTypes,
-        EPropertyTypes.ARRAY | EPropertyTypes.COLLECTION | EPropertyTypes.OBJECT
+        | EPropertyTypes.ARRAY
+        | EPropertyTypes.COLLECTION
+        | EPropertyTypes.OBJECT
+        | EPropertyTypes.DICTIONARY
       >
     >
   | IEntityArrayProperty<Extract<EPropertyTypes, EPropertyTypes.ARRAY>>
   | IEntityCustomProperty<
-      Extract<EPropertyTypes, EPropertyTypes.COLLECTION | EPropertyTypes.OBJECT>
+      Extract<
+        EPropertyTypes,
+        | EPropertyTypes.COLLECTION
+        | EPropertyTypes.OBJECT
+        | EPropertyTypes.DICTIONARY
+      >
     >;
 
 export enum EPropertyTypes {
@@ -42,6 +50,7 @@ export enum EPropertyTypes {
   ARRAY = 'array',
   OBJECT = 'object',
   COLLECTION = 'collection',
+  DICTIONARY = 'dictionary',
   ANY = 'any', // ? TBD
 }
 

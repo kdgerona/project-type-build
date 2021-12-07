@@ -13,7 +13,7 @@ export interface IEntityProperties<TType = EPropertyTypes> {
     type: TType;
     nullable: boolean;
 }
-export declare type TEntityProperties = IEntityProperties<Exclude<EPropertyTypes, EPropertyTypes.ARRAY | EPropertyTypes.COLLECTION | EPropertyTypes.OBJECT>> | IEntityArrayProperty<Extract<EPropertyTypes, EPropertyTypes.ARRAY>> | IEntityCustomProperty<Extract<EPropertyTypes, EPropertyTypes.COLLECTION | EPropertyTypes.OBJECT>>;
+export declare type TEntityProperties = IEntityProperties<Exclude<EPropertyTypes, EPropertyTypes.ARRAY | EPropertyTypes.COLLECTION | EPropertyTypes.OBJECT | EPropertyTypes.DICTIONARY>> | IEntityArrayProperty<Extract<EPropertyTypes, EPropertyTypes.ARRAY>> | IEntityCustomProperty<Extract<EPropertyTypes, EPropertyTypes.COLLECTION | EPropertyTypes.OBJECT | EPropertyTypes.DICTIONARY>>;
 export declare enum EPropertyTypes {
     STRING = "string",
     NUMBER = "number",
@@ -21,6 +21,7 @@ export declare enum EPropertyTypes {
     ARRAY = "array",
     OBJECT = "object",
     COLLECTION = "collection",
+    DICTIONARY = "dictionary",
     ANY = "any"
 }
 export interface IEntitySchemaConfig {

@@ -20,7 +20,7 @@ var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
     return to.concat(ar || Array.prototype.slice.call(from));
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.constructCollectionTypes = exports.constructObjectTypes = exports.constructInterface = exports.constructArrayTypes = exports.constructBasicTypes = void 0;
+exports.constructDictionaryTypes = exports.constructCollectionTypes = exports.constructObjectTypes = exports.constructInterface = exports.constructArrayTypes = exports.constructBasicTypes = void 0;
 var types_1 = require("../types");
 var utils_1 = require("./utils");
 var constructBasicTypes = function (config) {
@@ -53,6 +53,9 @@ var constructInterface = function (properties) {
             case types_1.EPropertyTypes.COLLECTION:
                 var _b = (0, exports.constructCollectionTypes)(curr), collection_root_properties = _b.root_properties, collection_built_schemas = _b.built_schemas;
                 return __assign(__assign({}, acc), { root_properties: __spreadArray(__spreadArray([], acc.root_properties, true), collection_root_properties, true), built_schemas: __spreadArray(__spreadArray([], acc.built_schemas, true), collection_built_schemas, true) });
+            case types_1.EPropertyTypes.DICTIONARY:
+                var _c = (0, exports.constructDictionaryTypes)(curr), dictionary_root_properties = _c.root_properties, dictionary_built_schemas = _c.built_schemas;
+                return __assign(__assign({}, acc), { root_properties: __spreadArray(__spreadArray([], acc.root_properties, true), dictionary_root_properties, true), built_schemas: __spreadArray(__spreadArray([], acc.built_schemas, true), dictionary_built_schemas, true) });
             default:
                 return acc;
         }
@@ -103,3 +106,24 @@ var constructCollectionTypes = function (config) {
     };
 };
 exports.constructCollectionTypes = constructCollectionTypes;
+var constructDictionaryTypes = function (config) {
+    var _a = config !== null && config !== void 0 ? config : {}, name = _a.name, nullable = _a.nullable, additional_properties = _a.additional_properties, link = _a.link;
+    var interface_name = "I".concat((0, utils_1.toPascalCase)(link || name));
+    if (link) {
+        return {
+            root_properties: [
+                "".concat(name).concat((0, utils_1.isNullableType)(nullable), ": Record<string, ").concat(interface_name, ">"),
+            ],
+            built_schemas: [],
+        };
+    }
+    var _b = (0, exports.constructInterface)(additional_properties), _c = _b.root_properties, root_properties = _c === void 0 ? [] : _c, _d = _b.built_schemas, built_schemas = _d === void 0 ? [] : _d;
+    var built_schema = "export interface ".concat(interface_name, " {\n      ").concat(root_properties.join('\n'), "\n  }");
+    return {
+        root_properties: [
+            "".concat(name).concat((0, utils_1.isNullableType)(nullable), ": Record<string, ").concat(interface_name, ">"),
+        ],
+        built_schemas: __spreadArray([built_schema], built_schemas, true),
+    };
+};
+exports.constructDictionaryTypes = constructDictionaryTypes;
