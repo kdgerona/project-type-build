@@ -45,7 +45,7 @@ const Location: IEntitySchemaConfig = {
       id: 'open_hours',
       name: 'open_hours',
       type: EPropertyTypes.ARRAY,
-      data_type: EPropertyTypes.ANY,
+      data_type: EPropertyTypes.STRING,
       nullable: false,
     },
     {
