@@ -13,7 +13,7 @@ const builder = async (write_path: string, config: IEntitySchemaConfig) => {
   const template = `
     import { ${project_entity} } from '@dnamicro/gorentals-schema-core/build/src/${entity}_${schema_version}'
 
-    export interface ${interface_name} extends ${project_entity} {
+    export interface ${interface_name}${schema_version.toUpperCase()} extends ${project_entity} {
       attribute?: {
         ${root_properties.join('\n')}
       }
@@ -22,9 +22,12 @@ const builder = async (write_path: string, config: IEntitySchemaConfig) => {
     ${built_schemas.join('\n')}
   `;
 
-  await writeFile(`${write_path}/${pascalized_entity_name}.ts`, template);
+  await writeFile(
+    `${write_path}/${pascalized_entity_name}${schema_version.toUpperCase()}.ts`,
+    template
+  );
 
-  return pascalized_entity_name;
+  return `${pascalized_entity_name}${schema_version.toUpperCase()}`;
 };
 
 export default builder;

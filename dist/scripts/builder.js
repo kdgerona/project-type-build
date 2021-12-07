@@ -49,11 +49,11 @@ var builder = function (write_path, config) { return __awaiter(void 0, void 0, v
                 interface_name = "I".concat(pascalized_entity_name);
                 _c = (0, handlers_1.constructInterface)(properties), root_properties = _c.root_properties, built_schemas = _c.built_schemas;
                 project_entity = "".concat(pascalized_entity_name).concat(schema_version.toUpperCase(), "Entity");
-                template = "\n    import { ".concat(project_entity, " } from '@dnamicro/gorentals-schema-core/build/src/").concat(entity, "_").concat(schema_version, "'\n\n    export interface ").concat(interface_name, " extends ").concat(project_entity, " {\n      attribute?: {\n        ").concat(root_properties.join('\n'), "\n      }\n    }\n\n    ").concat(built_schemas.join('\n'), "\n  ");
-                return [4 /*yield*/, (0, promises_1.writeFile)("".concat(write_path, "/").concat(pascalized_entity_name, ".ts"), template)];
+                template = "\n    import { ".concat(project_entity, " } from '@dnamicro/gorentals-schema-core/build/src/").concat(entity, "_").concat(schema_version, "'\n\n    export interface ").concat(interface_name).concat(schema_version.toUpperCase(), " extends ").concat(project_entity, " {\n      attribute?: {\n        ").concat(root_properties.join('\n'), "\n      }\n    }\n\n    ").concat(built_schemas.join('\n'), "\n  ");
+                return [4 /*yield*/, (0, promises_1.writeFile)("".concat(write_path, "/").concat(pascalized_entity_name).concat(schema_version.toUpperCase(), ".ts"), template)];
             case 1:
                 _d.sent();
-                return [2 /*return*/, pascalized_entity_name];
+                return [2 /*return*/, "".concat(pascalized_entity_name).concat(schema_version.toUpperCase())];
         }
     });
 }); };
