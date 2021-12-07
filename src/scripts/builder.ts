@@ -14,9 +14,11 @@ const builder = async (write_path: string, config: IEntitySchemaConfig) => {
     import { ${project_entity} } from '@dnamicro/gorentals-schema-core/build/src/${entity}_${schema_version}'
 
     export interface ${interface_name}${schema_version.toUpperCase()} extends ${project_entity} {
-      attribute?: {
-        ${root_properties.join('\n')}
-      }
+      attribute?: ${interface_name}${schema_version.toUpperCase()}Attr
+    }
+
+    export interface ${interface_name}${schema_version.toUpperCase()}Attr {
+      ${root_properties.join('\n')}
     }
 
     ${built_schemas.join('\n')}
