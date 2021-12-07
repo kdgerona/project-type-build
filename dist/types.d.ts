@@ -22,6 +22,7 @@ export declare enum EPropertyTypes {
 }
 export interface IEntitySchemaConfig {
     entity: string;
+    schema_version: string;
     properties: TEntityProperties[];
 }
 export declare type TBasicTypes = EPropertyTypes.STRING | EPropertyTypes.NUMBER | EPropertyTypes.BOOLEAN | EPropertyTypes.ANY;

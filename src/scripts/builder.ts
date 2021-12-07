@@ -4,14 +4,19 @@ import { constructInterface } from './handlers';
 import { toPascalCase } from './utils';
 
 const builder = async (write_path: string, config: IEntitySchemaConfig) => {
-  const { entity, properties } = config ?? {};
+  const { entity, schema_version = 'v4', properties } = config ?? {};
   const pascalized_entity_name = toPascalCase(entity);
   const interface_name = `I${pascalized_entity_name}`;
   const { root_properties, built_schemas } = constructInterface(properties);
+  const project_entity = `${pascalized_entity_name}${schema_version.toUpperCase()}Entity`;
 
   const template = `
-    export interface ${interface_name} {
-      ${root_properties.join('\n')}
+    import { ${project_entity} } from '@dnamicro/gorentals-schema-core/build/src/${entity}_${schema_version}'
+
+    export interface ${interface_name} extends ${project_entity} {
+      attribute?: {
+        ${root_properties.join('\n')}
+      }
     }
 
     ${built_schemas.join('\n')}

@@ -104,7 +104,6 @@ var main = function () { return __awaiter(void 0, void 0, void 0, function () {
                     }); })];
             case 5:
                 build_types_file_names = _a.sent();
-                console.log('build_types_file_names', build_types_file_names);
                 export_files_template = build_types_file_names
                     .map(function (file_name) { return "export * from './".concat(file_name, "'"); })
                     .join('\n');

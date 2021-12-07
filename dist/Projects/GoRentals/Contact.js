@@ -3,6 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var types_1 = require("../../types");
 var Contact = {
     entity: 'contact',
+    schema_version: 'v4',
     properties: [
         {
             name: 'first_name',
