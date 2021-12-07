@@ -1,6 +1,6 @@
 import { LocationV4Entity } from '@dnamicro/gorentals-schema-core/build/src/location_v4';
 
-export interface ILocationV4 extends LocationV4Entity {
+export default interface ILocationV4 extends LocationV4Entity {
   attribute?: ILocationV4Attr;
 }
 

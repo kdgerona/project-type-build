@@ -105,7 +105,7 @@ var main = function () { return __awaiter(void 0, void 0, void 0, function () {
             case 5:
                 build_types_file_names = _a.sent();
                 export_files_template = build_types_file_names
-                    .map(function (file_name) { return "export * from './".concat(file_name, "'"); })
+                    .map(function (file_name) { return "export { default as ".concat(file_name, " } from './").concat(file_name, "'"); })
                     .join('\n');
                 return [4 /*yield*/, (0, promises_1.writeFile)("".concat(write_path_1, "/index.ts"), export_files_template)];
             case 6:
