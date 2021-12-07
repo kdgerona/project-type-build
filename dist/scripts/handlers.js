@@ -29,11 +29,12 @@ var constructBasicTypes = function (config) {
 };
 exports.constructBasicTypes = constructBasicTypes;
 var constructArrayTypes = function (config) {
-    var _a = config !== null && config !== void 0 ? config : {}, name = _a.name, data_type = _a.data_type, nullable = _a.nullable;
-    return "".concat(name).concat((0, utils_1.isNullableType)(nullable), ": ").concat(data_type, "[]");
+    var _a = config !== null && config !== void 0 ? config : {}, name = _a.name, data_type = _a.data_type, nullable = _a.nullable, link = _a.link;
+    return "".concat(name).concat((0, utils_1.isNullableType)(nullable), ": ").concat(link ? "I".concat((0, utils_1.toPascalCase)(link)) : data_type, "[]");
 };
 exports.constructArrayTypes = constructArrayTypes;
 var constructInterface = function (properties) {
+    if (properties === void 0) { properties = []; }
     var insulated_interface = properties.reduce(function (acc, curr) {
         var type = (curr !== null && curr !== void 0 ? curr : {}).type;
         switch (type) {
@@ -63,8 +64,16 @@ var constructInterface = function (properties) {
 };
 exports.constructInterface = constructInterface;
 var constructObjectTypes = function (config) {
-    var _a = config !== null && config !== void 0 ? config : {}, name = _a.name, nullable = _a.nullable, additional_properties = _a.additional_properties;
-    var interface_name = "I".concat((0, utils_1.toPascalCase)(name));
+    var _a = config !== null && config !== void 0 ? config : {}, name = _a.name, nullable = _a.nullable, additional_properties = _a.additional_properties, link = _a.link;
+    var interface_name = "I".concat((0, utils_1.toPascalCase)(link || name));
+    if (link) {
+        return {
+            root_properties: [
+                "".concat(name).concat((0, utils_1.isNullableType)(nullable), ": ").concat(interface_name),
+            ],
+            built_schemas: [],
+        };
+    }
     var _b = (0, exports.constructInterface)(additional_properties), _c = _b.root_properties, root_properties = _c === void 0 ? [] : _c, _d = _b.built_schemas, built_schemas = _d === void 0 ? [] : _d;
     var built_schema = "export interface ".concat(interface_name, " {\n      ").concat(root_properties.join('\n'), "\n  }");
     return {
@@ -74,8 +83,16 @@ var constructObjectTypes = function (config) {
 };
 exports.constructObjectTypes = constructObjectTypes;
 var constructCollectionTypes = function (config) {
-    var _a = config !== null && config !== void 0 ? config : {}, name = _a.name, nullable = _a.nullable, additional_properties = _a.additional_properties;
-    var interface_name = "I".concat((0, utils_1.toPascalCase)(name));
+    var _a = config !== null && config !== void 0 ? config : {}, name = _a.name, nullable = _a.nullable, additional_properties = _a.additional_properties, link = _a.link;
+    var interface_name = "I".concat((0, utils_1.toPascalCase)(link || name));
+    if (link) {
+        return {
+            root_properties: [
+                "".concat(name).concat((0, utils_1.isNullableType)(nullable), ": ").concat(interface_name, "[]"),
+            ],
+            built_schemas: [],
+        };
+    }
     var _b = (0, exports.constructInterface)(additional_properties), _c = _b.root_properties, root_properties = _c === void 0 ? [] : _c, _d = _b.built_schemas, built_schemas = _d === void 0 ? [] : _d;
     var built_schema = "export interface ".concat(interface_name, " {\n        ").concat(root_properties.join('\n'), "\n    }");
     return {

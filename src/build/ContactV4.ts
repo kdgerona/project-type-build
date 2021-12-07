@@ -20,4 +20,5 @@ export interface IPhoneNumber {
 export interface IInsurance {
   company_name: string;
   insured_date: number;
+  insurance_partner?: IInsurance;
 }

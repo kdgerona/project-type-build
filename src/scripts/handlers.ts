@@ -19,8 +19,10 @@ export const constructBasicTypes = (
 export const constructArrayTypes = (
   config: IEntityArrayProperty<EPropertyTypes.ARRAY>
 ): string => {
-  const { name, data_type, nullable } = config ?? {};
-  return `${name}${isNullableType(nullable)}: ${data_type}[]`;
+  const { name, data_type, nullable, link } = config ?? {};
+  return `${name}${isNullableType(nullable)}: ${
+    link ? `I${toPascalCase(link)}` : data_type
+  }[]`;
 };
 
 export const constructInterface = (
@@ -98,8 +100,17 @@ export const constructInterface = (
 export const constructObjectTypes = (
   config: IEntityCustomProperty<EPropertyTypes.OBJECT>
 ): IPropertiesTypeContructedInsulation => {
-  const { name, nullable, additional_properties } = config ?? {};
-  const interface_name = `I${toPascalCase(name)}`;
+  const { name, nullable, additional_properties, link } = config ?? {};
+  const interface_name = `I${toPascalCase(link || name)}`;
+
+  if (link) {
+    return {
+      root_properties: [
+        `${name}${isNullableType(nullable)}: ${interface_name}`,
+      ],
+      built_schemas: [],
+    };
+  }
 
   const { root_properties = [], built_schemas = [] } = constructInterface(
     additional_properties
@@ -118,8 +129,17 @@ export const constructObjectTypes = (
 export const constructCollectionTypes = (
   config: IEntityCustomProperty<EPropertyTypes.COLLECTION>
 ): IPropertiesTypeContructedInsulation => {
-  const { name, nullable, additional_properties } = config ?? {};
-  const interface_name = `I${toPascalCase(name)}`;
+  const { name, nullable, additional_properties, link } = config ?? {};
+  const interface_name = `I${toPascalCase(link || name)}`;
+
+  if (link) {
+    return {
+      root_properties: [
+        `${name}${isNullableType(nullable)}: ${interface_name}[]`,
+      ],
+      built_schemas: [],
+    };
+  }
 
   const { root_properties = [], built_schemas = [] } = constructInterface(
     additional_properties
