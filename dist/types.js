@@ -9,5 +9,6 @@ var EPropertyTypes;
     EPropertyTypes["ARRAY"] = "array";
     EPropertyTypes["OBJECT"] = "object";
     EPropertyTypes["COLLECTION"] = "collection";
+    EPropertyTypes["DICTIONARY"] = "dictionary";
     EPropertyTypes["ANY"] = "any";
 })(EPropertyTypes = exports.EPropertyTypes || (exports.EPropertyTypes = {}));

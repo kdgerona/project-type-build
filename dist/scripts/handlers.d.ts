@@ -4,4 +4,5 @@ export declare const constructArrayTypes: (config: IEntityArrayProperty<EPropert
 export declare const constructInterface: (properties?: TEntityProperties[]) => IPropertiesTypeContructedInsulation;
 export declare const constructObjectTypes: (config: IEntityCustomProperty<EPropertyTypes.OBJECT>) => IPropertiesTypeContructedInsulation;
 export declare const constructCollectionTypes: (config: IEntityCustomProperty<EPropertyTypes.COLLECTION>) => IPropertiesTypeContructedInsulation;
+export declare const constructDictionaryTypes: (config: IEntityCustomProperty<EPropertyTypes.DICTIONARY>) => IPropertiesTypeContructedInsulation;
 //# sourceMappingURL=handlers.d.ts.map

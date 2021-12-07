@@ -84,6 +84,22 @@ export const constructInterface = (
             ],
             built_schemas: [...acc.built_schemas, ...collection_built_schemas],
           };
+        case EPropertyTypes.DICTIONARY:
+          const {
+            root_properties: dictionary_root_properties,
+            built_schemas: dictionary_built_schemas,
+          } = constructDictionaryTypes(
+            curr as IEntityCustomProperty<EPropertyTypes.DICTIONARY>
+          );
+
+          return {
+            ...acc,
+            root_properties: [
+              ...acc.root_properties,
+              ...dictionary_root_properties,
+            ],
+            built_schemas: [...acc.built_schemas, ...dictionary_built_schemas],
+          };
         default:
           return acc;
       }
@@ -152,6 +168,37 @@ export const constructCollectionTypes = (
   return {
     root_properties: [
       `${name}${isNullableType(nullable)}: ${interface_name}[]`,
+    ],
+    built_schemas: [built_schema, ...built_schemas],
+  };
+};
+
+export const constructDictionaryTypes = (
+  config: IEntityCustomProperty<EPropertyTypes.DICTIONARY>
+): IPropertiesTypeContructedInsulation => {
+  const { name, nullable, additional_properties, link } = config ?? {};
+  const interface_name = `I${toPascalCase(link || name)}`;
+
+  if (link) {
+    return {
+      root_properties: [
+        `${name}${isNullableType(nullable)}: Record<string, ${interface_name}>`,
+      ],
+      built_schemas: [],
+    };
+  }
+
+  const { root_properties = [], built_schemas = [] } = constructInterface(
+    additional_properties
+  );
+
+  const built_schema = `export interface ${interface_name} {
+      ${root_properties.join('\n')}
+  }`;
+
+  return {
+    root_properties: [
+      `${name}${isNullableType(nullable)}: Record<string, ${interface_name}>`,
     ],
     built_schemas: [built_schema, ...built_schemas],
   };
