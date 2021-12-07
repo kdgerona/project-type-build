@@ -48,8 +48,16 @@ export interface ICategories {
   category_type: string;
   id: string;
 }
-export interface IPartnerFbo {}
-export interface IPartnerHotel {}
+export interface IPartnerFbo {
+  name: string;
+  id: string;
+  status: string;
+}
+export interface IPartnerHotel {
+  name?: string;
+  id?: string;
+  status?: string;
+}
 export interface IRegion {
   name: string;
   id: string;

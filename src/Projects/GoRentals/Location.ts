@@ -173,6 +173,26 @@ const Location: IEntitySchemaConfig = {
       name: 'partner_fbo',
       type: EPropertyTypes.OBJECT,
       nullable: false,
+      additional_properties: [
+        {
+          id: 'name',
+          name: 'name',
+          type: EPropertyTypes.STRING,
+          nullable: false,
+        },
+        {
+          id: 'id',
+          name: 'id',
+          type: EPropertyTypes.STRING,
+          nullable: false,
+        },
+        {
+          id: 'status',
+          name: 'status',
+          type: EPropertyTypes.STRING,
+          nullable: false,
+        },
+      ],
     },
     {
       id: 'address',
@@ -191,6 +211,26 @@ const Location: IEntitySchemaConfig = {
       name: 'partner_hotel',
       type: EPropertyTypes.OBJECT,
       nullable: false,
+      additional_properties: [
+        {
+          id: 'name',
+          name: 'name',
+          type: EPropertyTypes.STRING,
+          nullable: true,
+        },
+        {
+          id: 'id',
+          name: 'id',
+          type: EPropertyTypes.STRING,
+          nullable: true,
+        },
+        {
+          id: 'status',
+          name: 'status',
+          type: EPropertyTypes.STRING,
+          nullable: true,
+        },
+      ],
     },
     {
       id: 'counter_type',
