@@ -69,24 +69,11 @@ var Contact = {
                     nullable: false,
                 },
                 {
-                    id: 'insurance',
-                    name: 'insurance',
+                    id: 'insurance-partner',
+                    name: 'insurance_partner',
                     type: types_1.EPropertyTypes.OBJECT,
                     nullable: true,
-                    additional_properties: [
-                        {
-                            id: 'company_name',
-                            name: 'company_name',
-                            type: types_1.EPropertyTypes.STRING,
-                            nullable: false,
-                        },
-                        {
-                            id: 'insured_date',
-                            name: 'insured_date',
-                            type: types_1.EPropertyTypes.NUMBER,
-                            nullable: false,
-                        },
-                    ],
+                    link: 'insurance'
                 },
             ],
         },

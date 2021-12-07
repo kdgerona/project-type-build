@@ -1,8 +1,8 @@
 {
-  "name": "@types/gorentals",
+  "name": "@dna-project/types",
   "version": "1.0.0",
   "description": "GoRentals Project Level Schema Builder",
-  "main": "dist/build",
+  "main": "dist/build/index.js",
   "scripts": {
     "build": "rm -rf dist && tsc",
     "format": "prettier src/**/*.ts --ignore-path ./.prettierignore --write",
