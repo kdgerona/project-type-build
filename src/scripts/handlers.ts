@@ -24,7 +24,7 @@ export const constructArrayTypes = (
 };
 
 export const constructInterface = (
-  properties: TEntityProperties[]
+  properties: TEntityProperties[] = []
 ): IPropertiesTypeContructedInsulation => {
   const insulated_interface = properties.reduce(
     (acc, curr) => {
