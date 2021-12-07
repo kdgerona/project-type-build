@@ -12,6 +12,9 @@
     "type": "git",
     "url": "http://gitlab.dnamicro.net/Platform6/project-level-schema-builder.git"
   },
+  "publishConfig": {
+    "registry": "https://npm.dnamicro.net"
+  },
   "keywords": [
     "schema",
     "builder"
