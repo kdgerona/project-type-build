@@ -1,11 +1,14 @@
 export declare type TDataTypes = EPropertyTypes.STRING | EPropertyTypes.NUMBER | EPropertyTypes.BOOLEAN | EPropertyTypes.ANY;
 export interface IEntityArrayProperty<TType = EPropertyTypes> extends IEntityProperties<TType> {
-    data_type: TDataTypes;
+    link?: string;
+    data_type?: TDataTypes;
 }
 export interface IEntityCustomProperty<TType = EPropertyTypes> extends IEntityProperties<TType> {
-    additional_properties: TEntityProperties[];
+    link?: string;
+    additional_properties?: TEntityProperties[];
 }
 export interface IEntityProperties<TType = EPropertyTypes> {
+    id: string;
     name: string;
     type: TType;
     nullable: boolean;

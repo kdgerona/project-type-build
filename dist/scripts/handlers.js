@@ -34,6 +34,7 @@ var constructArrayTypes = function (config) {
 };
 exports.constructArrayTypes = constructArrayTypes;
 var constructInterface = function (properties) {
+    if (properties === void 0) { properties = []; }
     var insulated_interface = properties.reduce(function (acc, curr) {
         var type = (curr !== null && curr !== void 0 ? curr : {}).type;
         switch (type) {
