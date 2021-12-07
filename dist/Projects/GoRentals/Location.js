@@ -174,6 +174,26 @@ var Location = {
             name: 'partner_fbo',
             type: types_1.EPropertyTypes.OBJECT,
             nullable: false,
+            additional_properties: [
+                {
+                    id: 'name',
+                    name: 'name',
+                    type: types_1.EPropertyTypes.STRING,
+                    nullable: false,
+                },
+                {
+                    id: 'id',
+                    name: 'id',
+                    type: types_1.EPropertyTypes.STRING,
+                    nullable: false,
+                },
+                {
+                    id: 'status',
+                    name: 'status',
+                    type: types_1.EPropertyTypes.STRING,
+                    nullable: false,
+                },
+            ],
         },
         {
             id: 'address',
@@ -192,6 +212,26 @@ var Location = {
             name: 'partner_hotel',
             type: types_1.EPropertyTypes.OBJECT,
             nullable: false,
+            additional_properties: [
+                {
+                    id: 'name',
+                    name: 'name',
+                    type: types_1.EPropertyTypes.STRING,
+                    nullable: true,
+                },
+                {
+                    id: 'id',
+                    name: 'id',
+                    type: types_1.EPropertyTypes.STRING,
+                    nullable: true,
+                },
+                {
+                    id: 'status',
+                    name: 'status',
+                    type: types_1.EPropertyTypes.STRING,
+                    nullable: true,
+                },
+            ],
         },
         {
             id: 'counter_type',
