@@ -1,7 +1,7 @@
 {
   "name": "@types/gorentals",
   "version": "1.0.0",
-  "description": "GoRentals Project Typings Schema Builder",
+  "description": "GoRentals Project Level Schema Builder",
   "main": "dist/build",
   "scripts": {
     "build": "rm -rf dist && tsc",
