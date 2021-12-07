@@ -1,7 +1,7 @@
 {
   "name": "@types/gorentals",
   "version": "1.0.0",
-  "description": "Project Level Typings Schema Builder",
+  "description": "GoRentals Project Typings Schema Builder",
   "main": "dist/build",
   "scripts": {
     "build": "rm -rf dist && tsc",
@@ -24,6 +24,9 @@
     "prettier": "^2.5.1",
     "ts-node": "^10.4.0",
     "typescript": "^4.5.2"
+  },
+  "peerDependencies": {
+    "@dnamicro/gorentals-schema-core": "git+http://gitlab.dnamicro.net/Platform6-Modules/companyschemas/gorentals/core.git#company-schemas/gorentals/core/v2"
   },
   "dependencies": {
     "@dnamicro/gorentals-schema-core": "git+http://gitlab.dnamicro.net/Platform6-Modules/companyschemas/gorentals/core.git#company-schemas/gorentals/core/v2",

@@ -58,23 +58,6 @@ var Contact = {
                     type: types_1.EPropertyTypes.NUMBER,
                     nullable: false,
                 },
-                {
-                    name: 'insurance_two',
-                    type: types_1.EPropertyTypes.OBJECT,
-                    nullable: true,
-                    additional_properties: [
-                        {
-                            name: 'company_name_2',
-                            type: types_1.EPropertyTypes.STRING,
-                            nullable: false,
-                        },
-                        {
-                            name: 'insured_date_2',
-                            type: types_1.EPropertyTypes.NUMBER,
-                            nullable: false,
-                        },
-                    ],
-                },
             ],
         },
     ],
