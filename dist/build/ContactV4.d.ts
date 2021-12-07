@@ -17,6 +17,14 @@ export interface IPhoneNumber {
 export interface IInsurance {
     company_name: string;
     insured_date: number;
+<<<<<<< HEAD
+    insurance?: IInsurance;
+}
+export interface IInsurance {
+    company_name: string;
+    insured_date: number;
+=======
     insurance_partner?: IInsurance;
+>>>>>>> 8de3183f59d990d354ee016d00f9266ce7fe38e0
 }
 //# sourceMappingURL=ContactV4.d.ts.map
