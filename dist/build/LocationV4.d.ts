@@ -9,7 +9,7 @@ export interface ILocationV4Attr {
     lid?: string;
     latitude: number;
     available_price_template: string[];
-    open_hours: any[];
+    open_hours: string[];
     zip_code: string;
     emails: string[];
     category_strings: string[];
