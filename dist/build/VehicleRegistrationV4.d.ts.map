@@ -1,0 +1,1 @@
+{"version":3,"file":"VehicleRegistrationV4.d.ts","sourceRoot":"","sources":["../../src/build/VehicleRegistrationV4.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,2BAA2B,EAAE,MAAM,mEAAmE,CAAC;AAEhH,MAAM,CAAC,OAAO,WAAW,sBACvB,SAAQ,2BAA2B;IACnC,SAAS,CAAC,EAAE,0BAA0B,CAAC;CACxC;AAED,MAAM,WAAW,0BAA0B;IACzC,aAAa,EAAE,MAAM,CAAC;IACtB,oBAAoB,EAAE,MAAM,CAAC;CAC9B"}
