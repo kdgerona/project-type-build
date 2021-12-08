@@ -204,7 +204,7 @@ const Location: IEntitySchemaConfig = {
       id: 'open_hours_to',
       name: 'open_hours_to',
       type: EPropertyTypes.STRING,
-      nullable: false,
+      nullable: true,
     },
     {
       id: 'partner_hotel',
