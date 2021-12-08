@@ -1,5 +1,7 @@
 export { default as IBookingV4 } from './BookingV4';
+export { default as IColorV4 } from './ColorV4';
 export { default as IContactV4 } from './ContactV4';
+export { default as IExtraV4 } from './ExtraV4';
 export { default as IFeeTemplateV4 } from './FeeTemplateV4';
 export { default as IGroupV4 } from './GroupV4';
 export { default as ILocationV4 } from './LocationV4';

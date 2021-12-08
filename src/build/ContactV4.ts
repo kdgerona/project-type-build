@@ -67,7 +67,7 @@ export interface IPaymentMethods {
   credit_card_number: string;
   credit_expiry: string;
   cvv: string;
-  default_payment_method: string;
+  default_payment_method: boolean;
   token: string;
   id: string;
 }
