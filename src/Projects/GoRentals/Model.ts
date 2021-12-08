@@ -6,28 +6,48 @@ const Model: IEntitySchemaConfig = {
   properties: [
     // existing attribute so far- master jane
     {
-      id: 'code',
-      name: 'code',
-      type: EPropertyTypes.STRING,
-      nullable: true,
+      id: 'maximum_selection',
+      name: 'maximum_selection',
+      type: EPropertyTypes.NUMBER,
+      nullable: false,
     },
     {
-      id: 'default_price_end',
-      name: 'default_price_end',
-      type: EPropertyTypes.STRING,
-      nullable: true,
+      id: 'maximum_selection',
+      name: 'maximum_selection',
+      type: EPropertyTypes.NUMBER,
+      nullable: false,
     },
     {
-      id: 'default_price_start',
-      name: 'default_price_start',
-      type: EPropertyTypes.STRING,
-      nullable: true,
-    },
-    {
-      id: 'name',
-      name: 'name',
+      id: 'value_type',
+      name: 'value_type',
       type: EPropertyTypes.STRING,
       nullable: false,
+    },
+    {
+      id: 'values',
+      name: 'values',
+      type: EPropertyTypes.COLLECTION,
+      nullable: true,
+      additional_properties: [
+        {
+          id: 'label',
+          name: 'label',
+          type: EPropertyTypes.STRING,
+          nullable: false,
+        }
+      ]
+    },
+    {
+      id: 'id',
+      name: 'id',
+      type: EPropertyTypes.STRING,
+      nullable: true,
+    },
+    {
+      id: 'label',
+      name: 'label',
+      type: EPropertyTypes.STRING,
+      nullable: true,
     },
   ],
 };
