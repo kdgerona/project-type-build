@@ -4,8 +4,7 @@ const Model: IEntitySchemaConfig = {
   entity: 'model',
   schema_version: 'v4',
   properties: [
-    //recall pa ni master jane 1 month ago pa
-    // existing attribute so far
+    // existing attribute so far- master jane
     {
       id: 'code',
       name: 'code',
