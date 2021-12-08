@@ -44,8 +44,8 @@ const Booking: IEntitySchemaConfig = {
       nullable: false,
     },
     {
-      id: 'addon_charges',
-      name: 'addon_charges',
+      id: 'addon_charge',
+      name: 'addon_charge',
       type: EPropertyTypes.DICTIONARY,
       nullable: false,
       additional_properties: [
@@ -271,8 +271,8 @@ const Booking: IEntitySchemaConfig = {
       type: EPropertyTypes.STRING,
     },
     {
-      id: 'vehicle_search_filters',
-      name: 'vehicle_search_filters',
+      id: 'vehicle_search_filter',
+      name: 'vehicle_search_filter',
       nullable: true,
       type: EPropertyTypes.OBJECT,
       additional_properties: [
@@ -297,8 +297,8 @@ const Booking: IEntitySchemaConfig = {
           data_type: EPropertyTypes.STRING,
         },
         {
-          id: 'filter_pills',
-          name: 'filter_pills',
+          id: 'filter_pill',
+          name: 'filter_pill',
           nullable: true,
           type: EPropertyTypes.OBJECT,
         },
@@ -317,8 +317,8 @@ const Booking: IEntitySchemaConfig = {
       type: EPropertyTypes.STRING,
     },
     {
-      id: 'vehicle_search_advanced_option_filters',
-      name: 'vehicle_search_advanced_option_filters',
+      id: 'vehicle_search_advanced_option_filter',
+      name: 'vehicle_search_advanced_option_filter',
       nullable: true,
       type: EPropertyTypes.OBJECT,
     },
@@ -329,8 +329,8 @@ const Booking: IEntitySchemaConfig = {
       type: EPropertyTypes.OBJECT,
       additional_properties: [
         {
-          id: 'total_charges',
-          name: 'total_charges',
+          id: 'total_charge',
+          name: 'total_charge',
           nullable: true,
           type: EPropertyTypes.NUMBER,
         },
