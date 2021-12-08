@@ -6,8 +6,8 @@ const Model: IEntitySchemaConfig = {
   properties: [
     // existing attribute so far- master jane
     {
-      id: 'maximum_selection',
-      name: 'maximum_selection',
+      id: 'minimum_selection',
+      name: 'minimum_selection',
       type: EPropertyTypes.NUMBER,
       nullable: false,
     },
