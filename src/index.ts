@@ -19,21 +19,24 @@ const main = async () => {
 
     await mkdir(write_path);
 
-    const file_paths = (await readdir(path)).map((file_name) =>
-      join(path, file_name)
+    const file_paths = (await readdir(path)).map((filename) =>
+      join(path, filename)
     );
 
-    const build_types_file_names = await Bluebird.map(
+    const build_types_filenames = await Bluebird.map(
       file_paths,
       async (path) => {
         const { default: config } = await import(path);
-        const file_name = await builder(write_path, config);
-        return file_name;
+        const build_artifacts = await builder(write_path, config);
+        return build_artifacts;
       }
     );
 
-    const export_files_template = build_types_file_names
-      .map((file_name) => `export { default as ${file_name} } from './${file_name}'`)
+    const export_files_template = build_types_filenames
+      .map(
+        ({ filename, interface_name }) =>
+          `export { default as ${interface_name} } from './${filename}'`
+      )
       .join('\n');
 
     await writeFile(`${write_path}/index.ts`, export_files_template);

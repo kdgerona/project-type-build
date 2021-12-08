@@ -65,7 +65,7 @@ var process_1 = require("process");
 var bluebird_1 = __importDefault(require("bluebird"));
 var builder_1 = __importDefault(require("./scripts/builder"));
 var main = function () { return __awaiter(void 0, void 0, void 0, function () {
-    var path_2, write_path_1, file_paths, build_types_file_names, export_files_template, e_1;
+    var path_2, write_path_1, file_paths, build_types_filenames, export_files_template, e_1;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
@@ -85,11 +85,11 @@ var main = function () { return __awaiter(void 0, void 0, void 0, function () {
                 _a.sent();
                 return [4 /*yield*/, (0, promises_1.readdir)(path_2)];
             case 4:
-                file_paths = (_a.sent()).map(function (file_name) {
-                    return (0, path_1.join)(path_2, file_name);
+                file_paths = (_a.sent()).map(function (filename) {
+                    return (0, path_1.join)(path_2, filename);
                 });
                 return [4 /*yield*/, bluebird_1.default.map(file_paths, function (path) { return __awaiter(void 0, void 0, void 0, function () {
-                        var config, file_name;
+                        var config, build_artifacts;
                         return __generator(this, function (_a) {
                             switch (_a.label) {
                                 case 0: return [4 /*yield*/, Promise.resolve().then(function () { return __importStar(require(path)); })];
@@ -97,15 +97,18 @@ var main = function () { return __awaiter(void 0, void 0, void 0, function () {
                                     config = (_a.sent()).default;
                                     return [4 /*yield*/, (0, builder_1.default)(write_path_1, config)];
                                 case 2:
-                                    file_name = _a.sent();
-                                    return [2 /*return*/, file_name];
+                                    build_artifacts = _a.sent();
+                                    return [2 /*return*/, build_artifacts];
                             }
                         });
                     }); })];
             case 5:
-                build_types_file_names = _a.sent();
-                export_files_template = build_types_file_names
-                    .map(function (file_name) { return "export { default as ".concat(file_name, " } from './").concat(file_name, "'"); })
+                build_types_filenames = _a.sent();
+                export_files_template = build_types_filenames
+                    .map(function (_a) {
+                    var filename = _a.filename, interface_name = _a.interface_name;
+                    return "export { default as ".concat(interface_name, " } from './").concat(filename, "'");
+                })
                     .join('\n');
                 return [4 /*yield*/, (0, promises_1.writeFile)("".concat(write_path_1, "/index.ts"), export_files_template)];
             case 6:
