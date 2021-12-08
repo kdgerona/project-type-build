@@ -20,10 +20,10 @@ export interface IBookingV4Attr {
     pickup_counter: IPickupCounter;
     dropoff_counter: IPickupCounter;
     ra_number: string;
-    vehicle_search_filters?: IVehicleSearch_filters;
+    vehicle_search_filters?: IVehicleSearchFilters;
     vehicle_search_selected_counter_id: string;
     vehicle_search_selected_counter_name: string;
-    vehicle_search_advanced_option_filters?: IVehicleSearch_advanced_option_filters;
+    vehicle_search_advanced_option_filters?: IVehicleSearchAdvancedOptionFilters;
     payment?: IPayment;
     guest_instruction?: string;
 }
@@ -62,7 +62,7 @@ export interface IPickupCounter {
     lat: number;
     lng: number;
 }
-export interface IVehicleSearch_filters {
+export interface IVehicleSearchFilters {
     search_text?: string;
     search_pills?: string[];
     filter_options?: string[];
@@ -70,7 +70,7 @@ export interface IVehicleSearch_filters {
 }
 export interface IFilterPills {
 }
-export interface IVehicleSearch_advanced_option_filters {
+export interface IVehicleSearchAdvancedOptionFilters {
 }
 export interface IPayment {
     total_charges?: number;

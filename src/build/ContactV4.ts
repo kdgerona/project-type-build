@@ -61,7 +61,7 @@ export interface ICategories {
   category_type: string;
 }
 export interface IPaymentMethods {
-  account_billing_address: IAccountBilling_address;
+  account_billing_address: IAccountBillingAddress;
   billing_address: boolean;
   card_holder: string;
   credit_card_number: string;
@@ -71,7 +71,7 @@ export interface IPaymentMethods {
   token: string;
   id: string;
 }
-export interface IAccountBilling_address {
+export interface IAccountBillingAddress {
   country: string;
   address: string;
   city: string;

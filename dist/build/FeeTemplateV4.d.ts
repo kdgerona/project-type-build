@@ -3,18 +3,18 @@ export default interface IFeeTemplateV4 extends FeeTemplateV4Entity {
     attribute?: IFeeTemplateV4Attr;
 }
 export interface IFeeTemplateV4Attr {
-    fee_template_conditions: IFeeTemplate_conditions;
+    fee_template_conditions: IFeeTemplateConditions;
     receiving_vendor: IReceivingVendor;
 }
-export interface IFeeTemplate_conditions {
+export interface IFeeTemplateConditions {
     end_date: number;
-    fee_template_counters: IFeeTemplate_counters[];
+    fee_template_counters: IFeeTemplateCounters[];
     formula: string;
     conditions: IConditions[];
     start_date: number;
     enable_conditions: boolean;
 }
-export interface IFeeTemplate_counters {
+export interface IFeeTemplateCounters {
     id: string;
     label: string;
     value: string;
