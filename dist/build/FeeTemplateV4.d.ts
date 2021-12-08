@@ -1,5 +1,5 @@
 import { FeeTemplateV4Entity } from '@dnamicro/gorentals-schema-core/build/src/fee_template_v4';
-export interface IFeeTemplateV4 extends FeeTemplateV4Entity {
+export default interface IFeeTemplateV4 extends FeeTemplateV4Entity {
     attribute?: IFeeTemplateV4Attr;
 }
 export interface IFeeTemplateV4Attr {

@@ -1,6 +1,6 @@
 import { GroupV4Entity } from '@dnamicro/gorentals-schema-core/build/src/group_v4';
 
-export interface IGroupV4 extends GroupV4Entity {
+export default interface IGroupV4 extends GroupV4Entity {
   attribute?: IGroupV4Attr;
 }
 
