@@ -1,8 +1,8 @@
 import { IEntitySchemaConfig, EPropertyTypes } from '../../types';
 
 const WizardData: IEntitySchemaConfig = {
-  entity: 'movement',
-  schema_version: '4',
+  entity: 'wizard_data',
+  schema_version: 'v4',
   properties: [
     {
       id: 'id',
@@ -174,7 +174,7 @@ const WizardData: IEntitySchemaConfig = {
     {
       id: 'attribute',
       name: 'attribute',
-      type: EPropertyTypes.OBJECT,
+      type: EPropertyTypes.DICTIONARY,
       nullable: false,
       additional_properties: [
         {
