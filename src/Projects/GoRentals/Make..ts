@@ -1,4 +1,7 @@
-import { IEntitySchemaConfig, EPropertyTypes } from '../../types';
+import {
+    IEntitySchemaConfig,
+    //  EPropertyTypes 
+} from '../../types';
 
 const Make: IEntitySchemaConfig = {
     entity: 'make',
