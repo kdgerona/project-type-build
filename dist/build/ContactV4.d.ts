@@ -1,5 +1,5 @@
 import { ContactV4Entity } from '@dnamicro/gorentals-schema-core/build/src/contact_v4';
-export interface IContactV4 extends ContactV4Entity {
+export default interface IContactV4 extends ContactV4Entity {
     attribute?: IContactV4Attr;
 }
 export interface IContactV4Attr {
