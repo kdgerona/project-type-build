@@ -1,5 +1,5 @@
 import { VehicleV4Entity } from '@dnamicro/gorentals-schema-core/build/src/vehicle_v4';
-export interface IVehicleV4 extends VehicleV4Entity {
+export default interface IVehicleV4 extends VehicleV4Entity {
     attribute?: IVehicleV4Attr;
 }
 export interface IVehicleV4Attr {

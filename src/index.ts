@@ -33,7 +33,7 @@ const main = async () => {
     );
 
     const export_files_template = build_types_file_names
-      .map((file_name) => `export * from './${file_name}'`)
+      .map((file_name) => `export { default as ${file_name} } from './${file_name}'`)
       .join('\n');
 
     await writeFile(`${write_path}/index.ts`, export_files_template);
