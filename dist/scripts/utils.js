@@ -5,7 +5,7 @@ var isNullableType = function (nullable) { return (nullable ? '?' : ''); };
 exports.isNullableType = isNullableType;
 var toPascalCase = function (string) {
     return string
-        .replace(/[-_\s]+/, ' ')
+        .replace(/[-_\s]+/g, ' ')
         .split(' ')
         .map(
     //@ts-ignore

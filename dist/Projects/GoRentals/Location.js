@@ -46,7 +46,7 @@ var Location = {
             id: 'open_hours',
             name: 'open_hours',
             type: types_1.EPropertyTypes.ARRAY,
-            data_type: types_1.EPropertyTypes.ANY,
+            data_type: types_1.EPropertyTypes.STRING,
             nullable: false,
         },
         {

@@ -1,6 +1,6 @@
 {
   "name": "@dna-project/types",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "GoRentals Project Level Schema Builder",
   "main": "dist/build/index.js",
   "scripts": {

@@ -2,7 +2,7 @@ export const isNullableType = (nullable: boolean) => (nullable ? '?' : '');
 
 export const toPascalCase = (string: string) =>
   string
-    .replace(/[-_\s]+/, ' ')
+    .replace(/[-_\s]+/g, ' ')
     .split(' ')
     .map(
       //@ts-ignore
