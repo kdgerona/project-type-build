@@ -212,7 +212,7 @@ const Movement: IEntitySchemaConfig = {
         {
           id: 'selected_vehicles',
           name: 'selected_vehicles',
-          type: EPropertyTypes.OBJECT,
+          type: EPropertyTypes.COLLECTION,
           nullable: false,
           additional_properties: [
             {
