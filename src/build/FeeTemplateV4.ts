@@ -5,11 +5,11 @@ export default interface IFeeTemplateV4 extends FeeTemplateV4Entity {
 }
 
 export interface IFeeTemplateV4Attr {
-  fee_template_conditions: IFeeTemplateConditions;
+  fee_template_condition: IFeeTemplateCondition;
   receiving_vendor: IReceivingVendor;
 }
 
-export interface IFeeTemplateConditions {
+export interface IFeeTemplateCondition {
   end_date: number;
   fee_template_counters: IFeeTemplateCounters[];
   formula: string;

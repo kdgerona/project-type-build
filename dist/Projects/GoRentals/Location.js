@@ -36,11 +36,18 @@ var Location = {
             nullable: false,
         },
         {
-            id: 'available_price_template',
-            name: 'available_price_template',
+            id: 'available_price_template_ids',
+            name: 'available_price_template_ids',
             type: types_1.EPropertyTypes.ARRAY,
             data_type: types_1.EPropertyTypes.STRING,
-            nullable: false,
+            nullable: true,
+        },
+        {
+            id: 'price_template_ids',
+            name: 'price_template_ids',
+            type: types_1.EPropertyTypes.ARRAY,
+            data_type: types_1.EPropertyTypes.STRING,
+            nullable: true,
         },
         {
             id: 'open_hours',
@@ -138,6 +145,33 @@ var Location = {
             nullable: false,
         },
         {
+            id: 'state_names',
+            name: 'state_names',
+            type: types_1.EPropertyTypes.ARRAY,
+            data_type: types_1.EPropertyTypes.STRING,
+            nullable: false,
+        },
+        {
+            id: 'state_options',
+            name: 'state_options',
+            type: types_1.EPropertyTypes.COLLECTION,
+            nullable: true,
+            additional_properties: [
+                {
+                    id: 'label',
+                    name: 'label',
+                    type: types_1.EPropertyTypes.STRING,
+                    nullable: true,
+                },
+                {
+                    id: 'value',
+                    name: 'value',
+                    type: types_1.EPropertyTypes.STRING,
+                    nullable: true,
+                }
+            ]
+        },
+        {
             id: 'categories',
             name: 'categories',
             type: types_1.EPropertyTypes.COLLECTION,
@@ -179,19 +213,19 @@ var Location = {
                     id: 'name',
                     name: 'name',
                     type: types_1.EPropertyTypes.STRING,
-                    nullable: false,
+                    nullable: true,
                 },
                 {
                     id: 'id',
                     name: 'id',
                     type: types_1.EPropertyTypes.STRING,
-                    nullable: false,
+                    nullable: true,
                 },
                 {
                     id: 'status',
                     name: 'status',
                     type: types_1.EPropertyTypes.STRING,
-                    nullable: false,
+                    nullable: true,
                 },
             ],
         },
@@ -205,7 +239,7 @@ var Location = {
             id: 'open_hours_to',
             name: 'open_hours_to',
             type: types_1.EPropertyTypes.STRING,
-            nullable: false,
+            nullable: true,
         },
         {
             id: 'partner_hotel',
@@ -269,6 +303,20 @@ var Location = {
             name: 'primary_email',
             type: types_1.EPropertyTypes.STRING,
             nullable: false,
+        },
+        {
+            id: 'counter_ids',
+            name: 'counter_ids',
+            type: types_1.EPropertyTypes.ARRAY,
+            data_type: types_1.EPropertyTypes.STRING,
+            nullable: true,
+        },
+        {
+            id: 'lot_ids',
+            name: 'lot_ids',
+            type: types_1.EPropertyTypes.ARRAY,
+            data_type: types_1.EPropertyTypes.STRING,
+            nullable: true,
         },
         {
             id: 'region',

@@ -395,7 +395,7 @@ var Contact = {
                 {
                     id: 'default_payment_method',
                     name: 'default_payment_method',
-                    type: types_1.EPropertyTypes.STRING,
+                    type: types_1.EPropertyTypes.BOOLEAN,
                     nullable: false,
                 },
                 {

@@ -394,7 +394,7 @@ const Contact: IEntitySchemaConfig = {
         {
           id: 'default_payment_method',
           name: 'default_payment_method',
-          type: EPropertyTypes.STRING,
+          type: EPropertyTypes.BOOLEAN,
           nullable: false,
         },
         {
