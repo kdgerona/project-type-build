@@ -1,7 +1,5 @@
 export { default as IBookingV4 } from './BookingV4';
-export { default as IColorV4 } from './ColorV4';
 export { default as IContactV4 } from './ContactV4';
-export { default as IExtraV4 } from './ExtraV4';
 export { default as IFeeTemplateV4 } from './FeeTemplateV4';
 export { default as IFeeTemplateConditionV4 } from './FeeTemplateConditionV4';
 export { default as IGroupV4 } from './GroupV4';
@@ -15,4 +13,3 @@ export { default as IVehicleClassV4 } from './VehicleClassV4';
 export { default as IVehicleRateV4 } from './VehicleRateV4';
 export { default as IVehicleRegistrationV4 } from './VehicleRegistrationV4';
 export { default as IWizardDataV4 } from './WizardDataV4';
-//# sourceMappingURL=index.d.ts.map
