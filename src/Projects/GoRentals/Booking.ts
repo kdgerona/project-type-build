@@ -120,8 +120,8 @@ const Booking: IEntitySchemaConfig = {
       type: EPropertyTypes.STRING,
     },
     {
-      id: 'guest_tier',
-      name: 'guest_tier',
+      id: 'guest_tiers',
+      name: 'guest_tiers',
       nullable: false,
       type: EPropertyTypes.ARRAY,
       data_type: EPropertyTypes.STRING,
@@ -300,7 +300,8 @@ const Booking: IEntitySchemaConfig = {
           id: 'filter_pill',
           name: 'filter_pill',
           nullable: true,
-          type: EPropertyTypes.OBJECT,
+          type: EPropertyTypes.DICTIONARY,
+          additional_properties: []
         },
       ],
     },
@@ -320,7 +321,8 @@ const Booking: IEntitySchemaConfig = {
       id: 'vehicle_search_advanced_option_filter',
       name: 'vehicle_search_advanced_option_filter',
       nullable: true,
-      type: EPropertyTypes.OBJECT,
+      type: EPropertyTypes.DICTIONARY,
+      additional_properties: []
     },
     {
       id: 'payment',
