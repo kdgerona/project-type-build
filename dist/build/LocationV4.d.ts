@@ -8,7 +8,8 @@ export interface ILocationV4Attr {
     open_hours_from?: string;
     lid?: string;
     latitude: number;
-    available_price_template: string[];
+    available_price_template_ids?: string[];
+    price_template_ids?: string[];
     open_hours: string[];
     zip_code: string;
     emails: string[];
@@ -21,11 +22,13 @@ export interface ILocationV4Attr {
     id: string;
     unit_apartment_suite?: string;
     state: string;
+    state_names: string[];
+    state_options?: IStateOptions[];
     categories: ICategories[];
     longitude: number;
     partner_fbo: IPartnerFbo;
     address: string;
-    open_hours_to: string;
+    open_hours_to?: string;
     partner_hotel: IPartnerHotel;
     counter_type: string;
     phone_numbers: string[];
@@ -33,6 +36,8 @@ export interface ILocationV4Attr {
     preferred_contact: string;
     name: string;
     primary_email: string;
+    counter_ids?: string[];
+    lot_ids?: string[];
     region: IRegion;
 }
 export interface ILocationManager {
@@ -40,15 +45,19 @@ export interface ILocationManager {
     id: string;
     first_name: string;
 }
+export interface IStateOptions {
+    label?: string;
+    value?: string;
+}
 export interface ICategories {
     name: string;
     category_type: string;
     id: string;
 }
 export interface IPartnerFbo {
-    name: string;
-    id: string;
-    status: string;
+    name?: string;
+    id?: string;
+    status?: string;
 }
 export interface IPartnerHotel {
     name?: string;

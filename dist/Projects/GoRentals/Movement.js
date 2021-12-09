@@ -213,7 +213,7 @@ var Movement = {
                 {
                     id: 'selected_vehicles',
                     name: 'selected_vehicles',
-                    type: types_1.EPropertyTypes.OBJECT,
+                    type: types_1.EPropertyTypes.COLLECTION,
                     nullable: false,
                     additional_properties: [
                         {

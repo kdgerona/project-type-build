@@ -6,8 +6,8 @@ var FeeTemplate = {
     schema_version: 'v4',
     properties: [
         {
-            id: 'fee_template_conditions',
-            name: 'fee_template_conditions',
+            id: 'fee_template_condition',
+            name: 'fee_template_condition',
             type: types_1.EPropertyTypes.OBJECT,
             nullable: false,
             additional_properties: [
@@ -15,7 +15,7 @@ var FeeTemplate = {
                     id: 'end_date',
                     name: 'end_date',
                     type: types_1.EPropertyTypes.NUMBER,
-                    nullable: false
+                    nullable: false,
                 },
                 {
                     id: 'fee_template_counters',
@@ -27,27 +27,27 @@ var FeeTemplate = {
                             id: 'id',
                             name: 'id',
                             type: types_1.EPropertyTypes.STRING,
-                            nullable: false
+                            nullable: false,
                         },
                         {
                             id: 'label',
                             name: 'label',
                             type: types_1.EPropertyTypes.STRING,
-                            nullable: false
+                            nullable: false,
                         },
                         {
                             id: 'value',
                             name: 'value',
                             type: types_1.EPropertyTypes.STRING,
-                            nullable: false
-                        }
-                    ]
+                            nullable: false,
+                        },
+                    ],
                 },
                 {
                     id: 'formula',
                     name: 'formula',
                     type: types_1.EPropertyTypes.STRING,
-                    nullable: false
+                    nullable: false,
                 },
                 {
                     id: 'conditions',
@@ -59,53 +59,53 @@ var FeeTemplate = {
                             id: 'duration',
                             name: 'duration',
                             type: types_1.EPropertyTypes.NUMBER,
-                            nullable: false
+                            nullable: false,
                         },
                         {
                             id: 'duration_type',
                             name: 'duration_type',
                             type: types_1.EPropertyTypes.STRING,
-                            nullable: false
+                            nullable: false,
                         },
                         {
                             id: 'condition_type',
                             name: 'condition_type',
                             type: types_1.EPropertyTypes.STRING,
-                            nullable: false
+                            nullable: false,
                         },
                         {
                             id: 'id',
                             name: 'id',
                             type: types_1.EPropertyTypes.STRING,
-                            nullable: false
+                            nullable: false,
                         },
                         {
                             id: 'operation',
                             name: 'operation',
                             type: types_1.EPropertyTypes.STRING,
-                            nullable: false
+                            nullable: false,
                         },
                         {
                             id: 'duration_unit',
                             name: 'duration_unit',
                             type: types_1.EPropertyTypes.STRING,
-                            nullable: false
-                        }
-                    ]
+                            nullable: false,
+                        },
+                    ],
                 },
                 {
                     id: 'start_date',
                     name: 'start_date',
                     type: types_1.EPropertyTypes.NUMBER,
-                    nullable: false
+                    nullable: false,
                 },
                 {
                     id: 'enable_conditions',
                     name: 'enable_conditions',
                     type: types_1.EPropertyTypes.BOOLEAN,
-                    nullable: false
-                }
-            ]
+                    nullable: false,
+                },
+            ],
         },
         {
             id: 'receiving_vendor',
@@ -117,16 +117,16 @@ var FeeTemplate = {
                     id: 'name',
                     name: 'name',
                     type: types_1.EPropertyTypes.STRING,
-                    nullable: false
+                    nullable: false,
                 },
                 {
                     id: 'id',
                     name: 'id',
                     type: types_1.EPropertyTypes.STRING,
-                    nullable: false
-                }
-            ]
-        }
-    ]
+                    nullable: false,
+                },
+            ],
+        },
+    ],
 };
 exports.default = FeeTemplate;

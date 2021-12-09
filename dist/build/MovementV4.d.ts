@@ -33,7 +33,7 @@ export interface IVehiclesAndDestinations {
     partner?: IDriver;
     vendor?: IDriver;
     specific_address?: ISpecificAddress;
-    selected_vehicles: ISelectedVehicles;
+    selected_vehicles: ISelectedVehicles[];
 }
 export interface ISpecificAddress {
     country: string;

@@ -6,10 +6,10 @@ export interface IBookingV4Attr {
     category: string;
     category_strings: string[];
     categories: ICategories[];
-    addon_charges: Record<string, IAddonCharges>;
+    addon_charge: Record<string, IAddonCharge>;
     booking_type: IBookingType;
     guest_name: string;
-    guest_tier: string[];
+    guest_tiers: string[];
     tail_number: string;
     pickup_time: number;
     dropoff_time: number;
@@ -20,10 +20,10 @@ export interface IBookingV4Attr {
     pickup_counter: IPickupCounter;
     dropoff_counter: IPickupCounter;
     ra_number: string;
-    vehicle_search_filters?: IVehicleSearchFilters;
+    vehicle_search_filter?: IVehicleSearchFilter;
     vehicle_search_selected_counter_id: string;
     vehicle_search_selected_counter_name: string;
-    vehicle_search_advanced_option_filters?: IVehicleSearchAdvancedOptionFilters;
+    vehicle_search_advanced_option_filter?: Record<string, IVehicleSearchAdvancedOptionFilter>;
     payment?: IPayment;
     guest_instruction?: string;
 }
@@ -32,7 +32,7 @@ export interface ICategories {
     name: string;
     category_type: string;
 }
-export interface IAddonCharges {
+export interface IAddonCharge {
     id: string;
     name: string;
     suggested_price_start: number;
@@ -62,18 +62,18 @@ export interface IPickupCounter {
     lat: number;
     lng: number;
 }
-export interface IVehicleSearchFilters {
+export interface IVehicleSearchFilter {
     search_text?: string;
     search_pills?: string[];
     filter_options?: string[];
-    filter_pills?: IFilterPills;
+    filter_pill?: Record<string, IFilterPill>;
 }
-export interface IFilterPills {
+export interface IFilterPill {
 }
-export interface IVehicleSearchAdvancedOptionFilters {
+export interface IVehicleSearchAdvancedOptionFilter {
 }
 export interface IPayment {
-    total_charges?: number;
+    total_charge?: number;
     total_auth?: number;
     total_paid?: number;
     remaining_balance?: number;

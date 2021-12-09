@@ -1,0 +1,1 @@
+{"version":3,"file":"CounterMovementV4.d.ts","sourceRoot":"","sources":["../../src/build/CounterMovementV4.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,uBAAuB,EAAE,MAAM,+DAA+D,CAAC;AAExG,MAAM,CAAC,OAAO,WAAW,kBAAmB,SAAQ,uBAAuB;IACzE,SAAS,CAAC,EAAE,sBAAsB,CAAC;CACpC;AAED,MAAM,WAAW,sBAAsB;CAAG"}
