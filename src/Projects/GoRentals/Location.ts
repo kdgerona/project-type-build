@@ -35,11 +35,18 @@ const Location: IEntitySchemaConfig = {
       nullable: false,
     },
     {
-      id: 'available_price_template',
-      name: 'available_price_template',
+      id: 'available_price_template_ids',
+      name: 'available_price_template_ids',
       type: EPropertyTypes.ARRAY,
       data_type: EPropertyTypes.STRING,
-      nullable: false,
+      nullable: true,
+    },
+    {
+      id: 'price_template_ids',
+      name: 'price_template_ids',
+      type: EPropertyTypes.ARRAY,
+      data_type: EPropertyTypes.STRING,
+      nullable: true,
     },
     {
       id: 'open_hours',
@@ -137,6 +144,33 @@ const Location: IEntitySchemaConfig = {
       nullable: false,
     },
     {
+      id: 'state_names',
+      name: 'state_names',
+      type: EPropertyTypes.ARRAY,
+      data_type: EPropertyTypes.STRING,
+      nullable: false,
+    },
+    {
+      id: 'state_options',
+      name: 'state_options',
+      type: EPropertyTypes.COLLECTION,
+      nullable: true,
+      additional_properties: [
+        {
+          id: 'label',
+          name: 'label',
+          type: EPropertyTypes.STRING,
+          nullable: true,
+        },
+        {
+          id: 'value',
+          name: 'value',
+          type: EPropertyTypes.STRING,
+          nullable: true,
+        }
+      ]
+    },
+    {
       id: 'categories',
       name: 'categories',
       type: EPropertyTypes.COLLECTION,
@@ -178,19 +212,19 @@ const Location: IEntitySchemaConfig = {
           id: 'name',
           name: 'name',
           type: EPropertyTypes.STRING,
-          nullable: false,
+          nullable: true,
         },
         {
           id: 'id',
           name: 'id',
           type: EPropertyTypes.STRING,
-          nullable: false,
+          nullable: true,
         },
         {
           id: 'status',
           name: 'status',
           type: EPropertyTypes.STRING,
-          nullable: false,
+          nullable: true,
         },
       ],
     },
@@ -204,7 +238,7 @@ const Location: IEntitySchemaConfig = {
       id: 'open_hours_to',
       name: 'open_hours_to',
       type: EPropertyTypes.STRING,
-      nullable: false,
+      nullable: true,
     },
     {
       id: 'partner_hotel',
@@ -268,6 +302,20 @@ const Location: IEntitySchemaConfig = {
       name: 'primary_email',
       type: EPropertyTypes.STRING,
       nullable: false,
+    },
+    {
+      id: 'counter_ids',
+      name: 'counter_ids',
+      type: EPropertyTypes.ARRAY,
+      data_type: EPropertyTypes.STRING,
+      nullable: true,
+    },
+    {
+      id: 'lot_ids',
+      name: 'lot_ids',
+      type: EPropertyTypes.ARRAY,
+      data_type: EPropertyTypes.STRING,
+      nullable: true,
     },
     {
       id: 'region',
